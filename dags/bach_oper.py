@@ -12,7 +12,12 @@ def random_branch_path():
 
     return "path1" if randint(1, 2) == 1 else "my_name_en"
 
-with DAG( **dag_args ) as dag:
+with DAG( 
+    dag_id="batch_operator",
+    start_date=days_ago(2),
+    schedule_interval="0 6 * * *",
+    tags=["batch_operator"],
+) as dag:
     t1 = BashOperator(
         task_id = 'print_date',
         bash_command = 'date',
