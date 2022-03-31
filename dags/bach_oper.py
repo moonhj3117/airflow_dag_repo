@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from textwrap import dedent
-from airflow import dag
+from airflow import DAG
 
 from airflow.operators.bash import BashOperator
 from airflow.operators.dummy import DummyOperator
